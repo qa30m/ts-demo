@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">TS Demo App</string>
+
+    <string name="welcome">Welcome to Afghan Telecom</string>
+    <string name="home_screen">Home Screen</string>
+    <string name="packages">Packages</string>
+    <string name="active">Active</string>
+    <string name="expired">Expire on</string>
+    <string name="data_usage_title">Data usage for this month</string>
+    <string name="data_usage">Data Usage</string>
+    <string name="profile">Home</string>
+    <string name="packages_list">Packages List</string>
+    <string name="download">Download</string>
+    <string name="upload">Upload</string>
+    <string name="menu">More</string>
+
+    <string name="english">English</string>
+    <string name="farsi">Farsi</string>
+    <string name="pashto">Pashto</string>
+
+    <string name="hi">Hi</string>
+    <string name="number">Number</string>
+    <string name="balance">Balance</string>
+    <string name="last_time_accessed">Last time accessed</string>
+    <string name="subscription_price">Subscription price</string>
+    <string name="remain_data">Remain Data</string>
+    <string name="package_speed">Package Speed</string>
+
+    <string name="one_time">One Time</string>
+    <string name="unsubscribe">Unsubscribe</string>
+
+    <string name="bundles">BUNDLES</string>
+    <string name="activate">ACTIVATE</string>
+    <string name="available_for_one_month">Available for one month</string>
+
+    <string name="last_months">Last Month\'s Usage</string>
+    <string name="today">Today</string>
+    <string name="this_month">This Month</string>
+
+    <string name="active_services">Active Services</string>
+    <string name="about">About</string>
+    <string name="calling_rate">Calling Rate</string>
+    <string name="support">Support</string>
+    <string name="share_app">Share App</string>
+    <string name="settings">Settings</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">Youtube</string>
+    <string name="logout">Logout</string>
+    <string name="follow_us">Follow us</string>
+
+
+    <string name="notifications">Notifications</string>
+
+    <string name="call_rate">Call Rate</string>
+    <string name="local_call_rate">Local call rate</string>
+    <string name="international_call_rate">International call rate</string>
+    <string name="audio_video_calling">Audio &amp; Video Calling</string>
+    <string name="ims_audio_video_calling">IMS Audio &amp; Video Call</string>
+    <string name="contact_afghan_telecom">Contact Afghan Telecom</string>
+
+    <string name="on_net_voice_call_to_digital_salaam">On-Net Voice call to Digital &amp; Salaam</string>
+    <string name="on_net_voice_call_from_digital_to_ims">On-Net Video call from Digital to IMS</string>
+    <string name="off_net_call_to_other_operators">Off-Net Call to other Operators</string>
+
+    <string name="fixedـlineـsalaam">Fixed Line &amp; Salaam</string>
+    <string name="other_operators">Other Local Operator</string>
+
+    <string name="full_address">Charahe Pashtoonistan, Froshgah, Kabul</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="po_box">P.O Box</string>
+    <string name="email">Email</string>
+    <string name="our_website">Our Website</string>
+
+    <string name="reset_your_password_here">Reset your password here</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset_password">Reset Password</string>
+
+</resources>
