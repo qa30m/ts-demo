@@ -10,13 +10,14 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.tsdemoapp.ui.theme.PoppinsFontFamily
 import com.example.tsdemoapp.ui.theme.SecondaryColor
-import com.example.tsdemoapp.ui.theme.TertiaryColor
+import com.example.tsdemoapp.ui.theme.blackFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,12 +29,12 @@ fun TopAppBar(
 
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = TertiaryColor,
-            titleContentColor = SecondaryColor,
+            containerColor = Color.White,
+            titleContentColor = blackFont,
         ),
         title = {
             val titleText = when (currentRoute) {
-                Routes.Profile.name -> "Profile"
+                Routes.VerifyAccount.name -> "Verify Account"
                 else -> "Demo App"
             }
             Text(
@@ -45,7 +46,7 @@ fun TopAppBar(
             )
         },
         navigationIcon = {
-            if (currentRoute != Routes.Profile.name) {
+            if (currentRoute != Routes.VerifyAccount.name) {
                 IconButton(onClick = {
                     navController.popBackStack()
                 }) {

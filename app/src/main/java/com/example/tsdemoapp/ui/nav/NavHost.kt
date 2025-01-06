@@ -1,7 +1,6 @@
 package com.example.tsdemoapp.ui.nav
 
 
-import com.example.tsdemoapp.ui.screens.VerifyAccountScreen
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
@@ -9,6 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.tsdemoapp.ui.screens.ProfileScreen
+import com.example.tsdemoapp.ui.screens.VerifyAccountScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -23,8 +24,9 @@ fun NavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        composable(Routes.Profile.name) {
+        composable(Routes.VerifyAccount.name) {
             VerifyAccountScreen(navHostController)
+//            ProfileScreen()
         }
     }
 }

@@ -17,11 +17,15 @@ val provider = GoogleFont.Provider(
 )
 val Poppins = GoogleFont("Poppins")
 val Roboto = GoogleFont("Roboto")
+val Montserrat = GoogleFont("Montserrat")
 
 val PoppinsFontFamily = FontFamily(
     Font(googleFont = Poppins, fontProvider = provider)
 )
 val RobotoFontFamily = FontFamily(
+    Font(googleFont = Roboto, fontProvider = provider)
+)
+val MontserratFontFamily = FontFamily(
     Font(googleFont = Roboto, fontProvider = provider)
 )
 
