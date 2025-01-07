@@ -30,7 +30,7 @@ fun TSDemoApp(context: Context) {
 
     TSDemoAppTheme(currentRoute = currentRoute) {
 
-        val startDestination = Routes.VerifyAccount.name
+        val startDestination = Routes.Profile.name
 
         Scaffold(
             topBar = {

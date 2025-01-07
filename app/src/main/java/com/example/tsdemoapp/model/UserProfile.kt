@@ -11,5 +11,5 @@ data class UserProfile(
     val district: String,
     val occupation: String,
     val nationality: String,
-    val monthlyIncome: Double,
+    val monthlyIncome: String,
 ) : java.io.Serializable

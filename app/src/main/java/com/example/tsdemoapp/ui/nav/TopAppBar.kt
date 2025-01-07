@@ -34,7 +34,7 @@ fun TopAppBar(
         ),
         title = {
             val titleText = when (currentRoute) {
-                Routes.VerifyAccount.name -> "Verify Account"
+                Routes.Profile.name -> "Verify Account"
                 else -> "Demo App"
             }
             Text(
@@ -46,7 +46,7 @@ fun TopAppBar(
             )
         },
         navigationIcon = {
-            if (currentRoute != Routes.VerifyAccount.name) {
+            if (currentRoute != Routes.Profile.name) {
                 IconButton(onClick = {
                     navController.popBackStack()
                 }) {
