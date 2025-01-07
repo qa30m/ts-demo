@@ -72,4 +72,6 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 
     implementation("io.coil-kt:coil-compose:2.2.2")
+
+    implementation ("com.github.skgmn:cameraxx-composable:0.7.1")
 }

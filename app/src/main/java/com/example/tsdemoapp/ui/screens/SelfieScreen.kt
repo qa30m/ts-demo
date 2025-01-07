@@ -1,35 +1,24 @@
 package com.example.tsdemoapp.ui.screens
 
 import android.widget.Toast
-import androidx.compose.foundation.Image
+import androidx.camera.core.CameraSelector
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.tsdemoapp.R
 import com.example.tsdemoapp.ui.components.DefaultButton
 import com.example.tsdemoapp.ui.components.InstructionItem
 import com.example.tsdemoapp.ui.components.PrimaryButton
+import com.github.skgmn.cameraxx.CameraPreview
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,13 +46,27 @@ fun SelfieScreen(
         )
 
         // Selfie Image
-        Image(
-            painter = painterResource(id = R.drawable.selfie_photo_sample), // Replace with your image resource
-            contentDescription = "Selfie",
-            modifier = Modifier.fillMaxWidth()
-                .padding(8.dp),
-            contentScale = ContentScale.Crop
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.selfie_photo_sample), // Replace with your image resource
+//            contentDescription = "Selfie",
+//            modifier = Modifier.fillMaxWidth()
+//                .padding(8.dp),
+//            contentScale = ContentScale.Crop
+//        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(460.dp)
+                .padding(8.dp)
+        ) {
+            CameraPreview(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(460.dp)
+                    .padding(8.dp),
+                cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+            )
+        }
 
         // Ensure text
         InstructionItem(text = "Ensure your selfie is clear")
