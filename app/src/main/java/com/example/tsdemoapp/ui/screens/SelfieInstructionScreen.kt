@@ -1,14 +1,10 @@
 package com.example.tsdemoapp.ui.screens
 
 import androidx.compose.foundation.Image
-import com.example.tsdemoapp.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.tsdemoapp.R
 import com.example.tsdemoapp.ui.components.InstructionItem
 import com.example.tsdemoapp.ui.components.PrimaryButton
 import com.example.tsdemoapp.ui.nav.Routes
@@ -58,7 +55,7 @@ fun SelfieInstructionScreen(
             Image(
                 painter = painterResource(id = R.drawable.ic_face),
                 contentDescription = "Selfie Icon",
-                modifier = Modifier.size(140.dp)
+                modifier = Modifier.size(200.dp)
                     .padding(16.dp)
             )
         }

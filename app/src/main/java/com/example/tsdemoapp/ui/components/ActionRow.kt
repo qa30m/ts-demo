@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tsdemoapp.R
 import com.example.tsdemoapp.ui.theme.blackFont
-import com.example.tsdemoapp.ui.theme.redFont
+import com.example.tsdemoapp.ui.theme.redColor
 
 @Composable
 fun ActionRow(
@@ -45,13 +45,13 @@ fun ActionRow(
             Text(
                 text = "Add Now",
                 fontSize = 16.sp,
-                color = redFont,
+                color = redColor,
                 fontWeight = FontWeight.Normal,
             )
             Icon(
                 painter = painterResource(R.drawable.arrow_1),
                 contentDescription = "",
-                tint = redFont,
+                tint = redColor,
                 modifier = Modifier.size(32.dp)
                     .padding(start = 8.dp, end = 16.dp)
             )

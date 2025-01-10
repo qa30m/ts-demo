@@ -62,13 +62,16 @@ import com.example.tsdemoapp.ui.theme.GrayBackground
 import com.example.tsdemoapp.ui.theme.LatoFontFamily
 import com.example.tsdemoapp.ui.theme.MontserratFontFamily
 import com.example.tsdemoapp.ui.theme.blackFont
+import com.example.tsdemoapp.ui.theme.blueColor
 import com.example.tsdemoapp.ui.theme.lightGray
-import com.example.tsdemoapp.ui.theme.redFont
+import com.example.tsdemoapp.ui.theme.redColor
+import com.example.tsdemoapp.viewmodel.MainViewModel
 import com.example.tsdemoapp.viewmodel.ProfileViewModel
 
 @Composable
 fun ProfileScreen(
     navController: NavController,
+    viewModel: MainViewModel,
     profileViewModel: ProfileViewModel = viewModel(
         factory = ProfileViewModel.Factory
     ),
@@ -120,7 +123,7 @@ fun ProfileScreen(
                         .padding(end = 10.dp)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                UserInfo(userProfile, navController)
+                UserInfo(userProfile, navController, viewModel)
                 Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -142,7 +145,8 @@ fun ProfileScreen(
 @Composable
 fun UserInfo(
     userProfile: UserProfile?,
-    navController: NavController
+    navController: NavController,
+    viewModel: MainViewModel
 ) {
     val firstName = remember { mutableStateOf(userProfile?.firstName ?: "") }
     val lastName = remember { mutableStateOf(userProfile?.lastName ?: "") }
@@ -168,12 +172,20 @@ fun UserInfo(
             verticalArrangement = Arrangement.Top
         ) {
             ProfileActionRow(
-                "Add Selfie Photo",
-                onActionClick = { navController.navigate(Routes.SelfieInstructions.name) }
+                title = "Selfie Photo",
+                isSet = viewModel.capturedBitmap.value != null,
+                onActionClick = {
+                    if (viewModel.capturedBitmap.value == null) {
+                        navController.navigate(Routes.SelfieInstructions.name)
+                    }
+                    else {
+                        navController.navigate(Routes.TakeSelfie.name)
+                    }
+                }
             )
             BottomBorder()
             ProfileActionRow(
-                "Add Identification",
+                "Identification",
                 onActionClick = { navController.navigate(Routes.AddIdentification.name) }
             )
             BottomBorder()
@@ -295,13 +307,56 @@ fun ProfileActionRow(
             Text(
                 text = "Add Now",
                 fontSize = 16.sp,
-                color = redFont,
+                color = redColor,
                 fontWeight = FontWeight.Normal,
             )
             Icon(
                 painter = painterResource(R.drawable.arrow_1),
                 contentDescription = "",
-                tint = redFont,
+                tint = redColor,
+                modifier = Modifier
+                    .size(32.dp)
+                    .padding(start = 8.dp, end = 16.dp)
+            )
+        }
+    }
+}
+@Composable
+fun ProfileActionRow(
+    title: String,
+    isSet: Boolean, // Pass the condition as a Boolean
+    onActionClick: () -> Unit
+) {
+    val actionText = if (isSet) "Added" else "Add Now"
+    val actionTextColor = if (isSet) blueColor else redColor
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = title,
+            fontSize = 16.sp,
+            color = blackFont,
+            fontWeight = FontWeight.Normal
+        )
+        Row(
+            modifier = Modifier.clickable { onActionClick() },
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = actionText,
+                fontSize = 16.sp,
+                color = actionTextColor,
+                fontWeight = FontWeight.Normal
+            )
+            Icon(
+                painter = painterResource(R.drawable.arrow_1),
+                contentDescription = null,
+                tint = actionTextColor,
                 modifier = Modifier
                     .size(32.dp)
                     .padding(start = 8.dp, end = 16.dp)
@@ -418,9 +473,9 @@ fun ProfileDropdownField(label: String, options: List<String>, selectedOption: S
     }
 }
 
-@Preview(showBackground = false)
-@Composable
-fun ProfilePreview() {
-    val navController = rememberNavController()
-    ProfileScreen(navController)
-}
+//@Preview(showBackground = false)
+//@Composable
+//fun ProfilePreview() {
+//    val navController = rememberNavController()
+//    ProfileScreen(navController)
+//}

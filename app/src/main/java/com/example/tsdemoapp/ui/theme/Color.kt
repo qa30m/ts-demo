@@ -28,5 +28,6 @@ val lightGrayFont = Color(0xFFCBCBCB)
 val brandTitleColor = Color(0xFFE8E8E8)
 
 val lightGray = Color(0xFFF5F5F5)
-val redFont = Color(0xFFF6464A)
+val redColor = Color(0xFFF6464A)
+val blueColor = Color(0xFF008EC8)
 val blackFont = Color(0xFF4A4A4A)

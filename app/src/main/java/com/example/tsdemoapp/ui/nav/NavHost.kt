@@ -43,7 +43,7 @@ fun NavHost(
         modifier = modifier,
     ) {
         composable(Routes.Profile.name) {
-            ProfileScreen(navHostController)
+            ProfileScreen(navHostController, viewModel)
         }
         composable(Routes.SelfieInstructions.name) {
             SelfieInstructionScreen(navHostController)

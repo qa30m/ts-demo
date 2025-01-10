@@ -3,6 +3,7 @@ package com.example.tsdemoapp.viewmodel
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
@@ -59,8 +60,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                             val bytes = ByteArray(buffer.remaining())
                             buffer.get(bytes)
                             val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                            val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+
+                            // Rotate the bitmap
+                            val adjustedBitmap = adjustBitmap(bitmap, rotationDegrees)
                             imageProxy.close()
-                            continuation.resume(bitmap)
+                            continuation.resume(adjustedBitmap)
                         } catch (e: Exception) {
                             continuation.resumeWith(Result.failure(e))
                         }
@@ -75,4 +80,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun newImageCapture() = ImageCapture.Builder().build()
+
+    private fun adjustBitmap(bitmap: Bitmap, rotationDegrees: Int, isFrontCamera: Boolean = true): Bitmap {
+        val matrix = Matrix()
+
+        // Apply rotation
+        matrix.postRotate(rotationDegrees.toFloat())
+
+        // Apply horizontal flip if using the front camera
+        if (isFrontCamera) {
+            matrix.postScale(-1f, 1f) // Flip horizontally
+        }
+
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
 }

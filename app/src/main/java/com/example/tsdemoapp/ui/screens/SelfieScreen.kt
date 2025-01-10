@@ -82,27 +82,31 @@ fun SelfieScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(64.dp))
+        // show when photo is taken
+        if(viewModel.capturedBitmap.value != null) {
 
-        // Ensure text
-        InstructionItem(text = "Ensure your selfie is clear")
+            Spacer(modifier = Modifier.height(64.dp))
 
-        // Spacer for buttons to have some margin
-        Spacer(modifier = Modifier.height(16.dp))
+            // Ensure text
+            InstructionItem(text = "Ensure your selfie is clear")
 
-        // Buttons
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            PrimaryButton(text = "Looks good") {
-                navController.navigate(Routes.Profile.name) {
-                    popUpTo(navController.graph.startDestinationId) { inclusive = true }
-                    launchSingleTop = true
+            // Spacer for buttons to have some margin
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Buttons
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                PrimaryButton(text = "Looks good") {
+                    navController.navigate(Routes.Profile.name) {
+                        popUpTo(navController.graph.startDestinationId) { inclusive = true }
+                        launchSingleTop = true
+                    }
                 }
-            }
-            DefaultButton(text = "Try again") {
-                viewModel.capturedBitmap.value = null
+                DefaultButton(text = "Try again") {
+                    viewModel.capturedBitmap.value = null
+                }
             }
         }
     }
