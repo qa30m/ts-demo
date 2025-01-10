@@ -2,6 +2,7 @@ package com.example.tsdemoapp.ui.nav
 
 
 import android.os.Build
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,9 +17,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.tsdemoapp.ui.components.Pending
+import com.example.tsdemoapp.ui.screens.CameraScreen
 import com.example.tsdemoapp.ui.screens.ProfileScreen
 import com.example.tsdemoapp.ui.screens.SelfieInstructionScreen
 import com.example.tsdemoapp.ui.screens.SelfieScreen
+import com.example.tsdemoapp.viewmodel.MainViewModel
+import com.github.skgmn.startactivityx.PermissionStatus
+import kotlinx.coroutines.flow.Flow
+import kotlin.getValue
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -26,8 +32,11 @@ fun NavHost(
     navHostController: NavHostController,
     startDestination : String,
     modifier: Modifier,
+    viewModel: MainViewModel,
+    permissionStatusFlow: Flow<PermissionStatus>,
+    onRequestCameraPermission: () -> Unit,
+    onTakePhoto: () -> Unit
 ) {
-
     NavHost(
         navController = navHostController,
         startDestination = startDestination,
@@ -40,7 +49,13 @@ fun NavHost(
             SelfieInstructionScreen(navHostController)
         }
         composable(Routes.TakeSelfie.name) {
-            SelfieScreen(navHostController)
+            SelfieScreen(
+                navHostController,
+                viewModel,
+                permissionStatusFlow,
+                onRequestCameraPermission,
+                onTakePhoto
+            )
         }
         composable(Routes.AddIdentification.name) {
             Pending()

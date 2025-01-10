@@ -56,6 +56,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("androidx.activity:activity-ktx:1.9.3")
 
     implementation("androidx.navigation:navigation-compose:2.7.6")
 
@@ -74,4 +75,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.2.2")
 
     implementation ("com.github.skgmn:cameraxx-composable:0.7.1")
+
+    implementation("com.github.skgmn:startactivityx:1.2.0")
 }

@@ -17,12 +17,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-
+import com.example.tsdemoapp.viewmodel.MainViewModel
+import com.github.skgmn.startactivityx.PermissionStatus
+import kotlinx.coroutines.flow.Flow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TSDemoApp(context: Context) {
+fun TSDemoApp(
+    context: Context,
+    viewModel: MainViewModel,
+    permissionStatusFlow: Flow<PermissionStatus>,
+    onRequestCameraPermission: () -> Unit,
+    onTakePhoto: () -> Unit,
+) {
     val navController = rememberNavController()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     val backStackEntry = navController.currentBackStackEntryAsState()
@@ -42,6 +50,10 @@ fun TSDemoApp(context: Context) {
                 navHostController = navController,
                 startDestination = startDestination,
                 Modifier.padding(innerPadding),
+                viewModel,
+                permissionStatusFlow,
+                onRequestCameraPermission,
+                onTakePhoto
             )
         }
     }
