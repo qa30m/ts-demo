@@ -7,7 +7,9 @@ https://github.com/qa30m/ts-demo/releases/download/demo/app-release.apk
 
 ## Screenshots
 Bellow are some screenshots of the app.
-![Screenshot_20250112_013242.png](app/release/Screenshot_20250112_013242.png)
-![Screenshot_20250112_013256.png](app/release/Screenshot_20250112_013256.png)
-![Screenshot_20250112_013314.png](app/release/Screenshot_20250112_013314.png)
-![Screenshot_20250112_013326.png](app/release/Screenshot_20250112_013326.png)
+<img src="image-url.png" alt="description" width="300">
+<img src="app/release/Screenshot_20250112_015925.png" alt="Screenshot" width="300">
+<img src="app/release/Screenshot_20250112_013314.png" alt="Screenshot" width="300">
+<img src="app/release/Screenshot_20250112_013326.png" alt="Screenshot" width="300">
+<img src="app/release/Screenshot_20250112_013242.png" alt="Screenshot" width="300">
+<img src="app/release/Screenshot_20250112_013256.png" alt="Screenshot" width="300">
