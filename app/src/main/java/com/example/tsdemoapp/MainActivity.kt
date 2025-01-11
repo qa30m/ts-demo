@@ -74,6 +74,37 @@ class MainActivity : ComponentActivity() {
                 val bitmap = viewModel.takePhoto()
                 if (bitmap != null) {
                     // Handle the bitmap (e.g., save it, display it, etc.)
+//                    Toast.makeText(
+//                        baseContext,
+//                        "Photo Captured Successfully",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+                } else {
+                    Toast.makeText(
+                        baseContext,
+                        "Failed to Capture Photo",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(
+                baseContext,
+                "Error: ${e.localizedMessage}",
+                Toast.LENGTH_SHORT
+            ).show()
+        } finally {
+            viewModel.savingPhotoState.value = false
+        }
+    }
+
+    private suspend fun scanEId() {
+        viewModel.savingPhotoState.value = true
+        try {
+            whenStarted {
+                val bitmap = viewModel.takePhoto()
+                if (bitmap != null) {
+                    // Handle the bitmap (e.g., save it, display it, etc.)
                     Toast.makeText(
                         baseContext,
                         "Photo Captured Successfully",

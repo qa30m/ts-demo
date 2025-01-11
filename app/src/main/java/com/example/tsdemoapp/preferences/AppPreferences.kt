@@ -8,8 +8,8 @@ class AppPreferences(context: Context) {
     private val editor = sharedPreferences.edit()
 
     companion object {
-        private const val SHARED_PREF_NAME = "dsl_app_shared_pref"
-        private const val KEY_APP_LANG = "dsl_app_language"
+        private const val SHARED_PREF_NAME = "test_app_shared_pref"
+        private const val KEY_APP_LANG = "test_app_language"
     }
 
     fun saveLanguage(lang: String) {

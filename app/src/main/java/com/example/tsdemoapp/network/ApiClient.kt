@@ -15,7 +15,7 @@ import java.security.SecureRandom
 import javax.net.ssl.HostnameVerifier
 
 object  ApiClient {
-    private const val BASE_URL = "https://dms.afghantelecom.af/api/"
+    private const val BASE_URL = "https://test.af/api/"
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()

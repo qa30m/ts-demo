@@ -173,9 +173,9 @@ fun UserInfo(
         ) {
             ProfileActionRow(
                 title = "Selfie Photo",
-                isSet = viewModel.capturedBitmap.value != null,
+                isSet = viewModel.capturedSelfie.value != null,
                 onActionClick = {
-                    if (viewModel.capturedBitmap.value == null) {
+                    if (viewModel.capturedSelfie.value == null) {
                         navController.navigate(Routes.SelfieInstructions.name)
                     }
                     else {
@@ -186,7 +186,15 @@ fun UserInfo(
             BottomBorder()
             ProfileActionRow(
                 "Identification",
-                onActionClick = { navController.navigate(Routes.AddIdentification.name) }
+                isSet = viewModel.capturedEId.value != null,
+                onActionClick = {
+                    if (viewModel.capturedEId.value == null) {
+                        navController.navigate(Routes.AddIdentificationInstruction.name)
+                    }
+                    else {
+                        navController.navigate(Routes.AddIdentification.name)
+                    }
+                }
             )
             BottomBorder()
             ProfileInputField(

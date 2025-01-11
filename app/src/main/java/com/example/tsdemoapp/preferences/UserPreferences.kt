@@ -9,11 +9,11 @@ class UserPreferences(context: Context) {
     private val editor = sharedPreferences.edit()
 
     companion object {
-        private const val SHARED_PREF_NAME = "dsl_user_shared_pref"
-        private const val KEY_USER_ID = "dsl_user_id"
-        private const val KEY_USER_NAME = "dsl_user_name"
-        private const val KEY_USER_EMAIL = "dsl_user_email"
-        private const val KEY_USER_TOKEN = "dsl_user_token"
+        private const val SHARED_PREF_NAME = "test_user_shared_pref"
+        private const val KEY_USER_ID = "test_user_id"
+        private const val KEY_USER_NAME = "test_user_name"
+        private const val KEY_USER_EMAIL = "test_user_email"
+        private const val KEY_USER_TOKEN = "test_user_token"
     }
 
     fun saveUser(user: User, token: String?) {

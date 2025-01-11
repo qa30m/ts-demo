@@ -4,5 +4,6 @@ enum class Routes {
     Profile,
     SelfieInstructions,
     TakeSelfie,
+    AddIdentificationInstruction,
     AddIdentification,
 }

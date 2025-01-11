@@ -19,7 +19,7 @@ import javax.net.ssl.HostnameVerifier
 import kotlin.toString
 
 object  ApiClientWithToken{
-    private const val BASE_URL = "https://dms.afghantelecom.af/api/"
+    private const val BASE_URL = "https://test.af/api/"
 
     // UserPreferences requires a context to be instantiated
     private lateinit var userPreferences: UserPreferences

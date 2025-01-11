@@ -7,6 +7,7 @@ import android.graphics.Matrix
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
+import androidx.camera.core.impl.UseCaseConfigFactory.CaptureType
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +20,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val permissionsInitiallyRequestedState = MutableStateFlow(false)
     val savingPhotoState = MutableStateFlow(false)
-    val capturedBitmap = mutableStateOf<Bitmap?>(null)
+    val capturedSelfie = mutableStateOf<Bitmap?>(null)
+    val capturedEId = mutableStateOf<Bitmap?>(null)
+
+    enum class CaptureType {
+        SELFIE,
+        EID,
+    }
 
 //    fun takePhotoAsync(): Deferred<Uri?> {
 //        return viewModelScope.async {
@@ -49,8 +56,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 //        }
 //    }
 
-    suspend fun takePhoto() {
-        capturedBitmap.value = suspendCoroutine { continuation ->
+    suspend fun takePhoto(type: CaptureType = CaptureType.SELFIE) {
+        val resultBitmap = suspendCoroutine { continuation ->
             imageCapture.takePicture(
                 Executors.newSingleThreadExecutor(),
                 object : ImageCapture.OnImageCapturedCallback() {
@@ -76,6 +83,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     }
                 }
             )
+        }
+
+        // Save to the appropriate variable based on the type
+        when (type) {
+            CaptureType.SELFIE -> capturedSelfie.value = resultBitmap
+            CaptureType.EID -> capturedEId.value = resultBitmap
         }
     }
 
